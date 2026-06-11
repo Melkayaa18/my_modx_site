@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Контакты - МБУ "УК Электрогорск"</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/gerb.jpg" alt="Герб Электрогорска" class="gerb">
+                <span class="logo-text">МБУ "УК ЭЛЕКТРОГОРСК"</span>
+            </div>
+            <div class="ornament">
+                <img src="images/top_ornament.png" alt="орнамент" class="ornament-img">
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="documents.html">Документы</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="contacts.html" class="active">Контакты</a></li>
+                    <li class="dropdown">
+                        <a href="#">Информация</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="info.html">Общая информация</a></li>
+                            <li><a href="announcements.html">Объявления</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container contacts-container">
+            <h1 class="page-title">Контакты</h1>
+            
+            <div class="contacts-grid">
+                <!-- Блок 1: Приём граждан -->
+                <div class="contact-card">
+                    <h2>🏢 Приём граждан и обращений</h2>
+                    <p><strong>Адрес:</strong> 142530, Московская область, г. Электрогорск, ул. Карла Маркса, д.10</p>
+                    <p><strong>Телефон:</strong> <a href="tel:+74964331042">+7 (49643) 3-10-42</a></p>
+                    <p><strong>Режим работы:</strong><br>
+                    Пн–Чт: 9:00 – 18:00<br>
+                    Пт: 9:00 – 16:45<br>
+                    Перерыв: 13:00 – 13:45<br>
+                    Сб–Вс: выходной</p>
+                </div>
+
+                <!-- Блок 2: Юридический адрес / почта -->
+                <div class="contact-card">
+                    <h2>📬 Юридический адрес и электронная почта</h2>
+                    <p><strong>Адрес:</strong> 142531, Московская область, г. Электрогорск, ул. Советская, д.31</p>
+                    <p><strong>Email:</strong><br>
+                    <a href="mailto:UKElgorsk@yandex.ru">UKElgorsk@yandex.ru</a><br>
+                    <a href="mailto:UKElgorsk@mail.ru">UKElgorsk@mail.ru</a></p>
+                    <p><strong>Аварийно-диспетчерская служба:</strong><br>
+                    📞 <a href="tel:+74964330138">8 (49643) 3-01-38</a> (круглосуточно)</p>
+                </div>
+            </div>
+
+            <!-- Карта (заглушка, потом заменишь на реальную) -->
+            <div class="map-container">
+                <h2>Схема проезда</h2>
+                <div class="map-placeholder">
+                    <p>📍 Здесь будет карта с расположением офиса по адресу: ул. Карла Маркса, д.10, Электрогорск</p>
+                    <!-- Пример вставки Яндекс.Карты (раскомментируй и замени ключ, если нужно) -->
+                    <!-- <iframe src="https://yandex.ru/map-widget/v1/?ll=38.123456,55.123456&z=17&pt=38.123456,55.123456&whatshere[point]=38.123456,55.123456&whatshere[zoom]=17&mode=search&sll=38.123456,55.123456&text=Электрогорск%20ул.%20Карла%20Маркса%2010" width="100%" height="300" frameborder="0"></iframe> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ФУТЕР (такой же) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="gradient-box">
+                    <p class="footer-slogan">В квитанциях ошибки, в подъезде мусор, сотрудники управляющей хамят? Расскажите о проблемах с ЖКХ</p>
+                    <button class="btn secondary-btn open-modal-btn">Написать о проблеме</button>
+                </div>
+            </div>
+            <div class="footer-right">
+                <img src="images/footer-img.png" alt="Фото дома" class="footer-img">
+            </div>
+        </div>
+        <div class="footer-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-block">
+                        <h4>МБУ "Управляющая компания Электрогорск"</h4>
+                        <p>Лицензия № 6231 от 29.03.2021, выдана ГЖИ МО</p>
+                        <p>Адрес: 142530, Московская обл., г. Электрогорск, ул. Карла Маркса, д.10</p>
+                        <p>Режим работы: Пн-Чт 9:00–18:00, Пт 9:00–16:45, перерыв 13:00–13:45</p>
+                        <p>Телефон: <a href="tel:+74964331042">+7 (49643) 3-10-42</a></p>
+                        <p>Email: <a href="mailto:UKElgorsk@yandex.ru">UKElgorsk@yandex.ru</a>, <a href="mailto:UKElgorsk@mail.ru">UKElgorsk@mail.ru</a></p>
+                        <p>Аварийно-диспетчерская служба: +7 (49643) 3-01-38</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>Для жителей</h4>
+                        <p>Сайт ГИС ЖКХ: <a href="https://dom.gosuslugi.ru" target="_blank">dom.gosuslugi.ru</a></p>
+                        <p>Нормативы и тарифы — по запросу в УК</p>
+                        <p>Правила безопасности газового оборудования — памятка в УК</p>
+                        <p><a href="#">Перечень работ и услуг</a> | <a href="#">Образцы заявлений</a></p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    © 2025 МБУ "УК Электрогорск" — вся информация актуальна на текущую дату
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Оставить заявку</h3>
+            <form id="requestForm">
+                <label>Ваше имя *</label>
+                <input type="text" name="name" required>
+                <label>Контактный телефон *</label>
+                <input type="tel" name="phone" required>
+                <label>Адрес (улица, дом, квартира)</label>
+                <input type="text" name="address">
+                <label>Суть проблемы</label>
+                <textarea name="problem" rows="3"></textarea>
+                <button type="submit" class="btn primary-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

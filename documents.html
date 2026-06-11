@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Документы - МБУ "УК Электрогорск"</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ШАПКА (ХЭДЕР) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/gerb.jpg" alt="Герб Электрогорска" class="gerb">
+                <span class="logo-text">МБУ "УК ЭЛЕКТРОГОРСК"</span>
+            </div>
+            <div class="ornament">
+                <img src="images/top_ornament.png" alt="орнамент" class="ornament-img">
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="documents.html" class="active">Документы</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li class="dropdown">
+                        <a href="#">Информация</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="info.html">Общая информация</a></li>
+                            <li><a href="announcements.html">Объявления</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container documents-container">
+            <h1 class="page-title">Документы и инструкции</h1>
+            
+            <!-- Блок 1: Как перейти на электронный ЕПД -->
+            <section class="doc-block">
+                <h2>Как перейти на электронный единый платежный документ</h2>
+                <p>В личном кабинете на сайте и в мобильном приложении «МосОблЕИРЦ Онлайн» в разделе «ПЛАТЕЖИ» в настройках выбрать опцию «ПОЛУЧАТЬ ПЛАТЕЖНЫЕ ДОКУМЕНТЫ ПО ПОЧТЕ и В ЭЛЕКТРОННОМ ВИДЕ»; в личном кабинете на сайте в разделе «ПРОФИЛЬ КЛИЕНТА» поставить галочку «ПОЛУЧАТЬ НА ПОЧТУ УВЕДОМЛЕНИЕ О СТАТУСЕ ЗАЯВОК, ПЛАТЕЖНЫЕ ДОКУМЕНТЫ».</p>
+                <p>Сейчас подписаться на электронный платежный документ таким способом могут только собственники. Другим пользователям, чтобы оформить подписку, нужно в личном кабинете в разделе «СЕРВИС» - «ОНЛАЙН ПОМОЩНИК» - «ЕДИНЫЙ ПЛАТЕЖНЫЙ ДОКУМЕНТ» направить обращение с тематикой «Подписка».</p>
+                <p>После успешного оформления подписки ЭПД будет направлен по адресу электронной почты, указанной при регистрации.</p>
+                <p class="important">!!! Важно подтвердить данный электронный адрес по ссылке, которая придет на указанный ящик сразу после прохождения регистрации. Если подписка была активирована, а электронный платежный документ не доставлен, нужно направить заявку с тематикой «Подписка/отказ от подписки на получение платежного документа в электронном виде».</p>
+            </section>
+
+            <!-- Блок 2: Газовое оборудование -->
+            <section class="doc-block">
+                <h2>Техническое обслуживание газового оборудования</h2>
+                <p>В соответствии с пунктом 46 Постановления Правительства Российской Федерации от 14.05.2013 № 410 "О мерах по обеспечению безопасности при использовании и содержании внутридомового и внутриквартирного газового оборудования" АО "Мособлгаз" подготовлены и размещены на официальном сайте: <a href="https://mosoblgaz.ru/abonents/services/tekhnicheskoe-obsluzhivanie/" target="_blank">https://mosoblgaz.ru/abonents/services/tekhnicheskoe-obsluzhivanie/</a> графики проведения технического обслуживания внутридомового и внутриквартирного газового оборудования (ТО ВДГО/ВКГО) в 2025 году.</p>
+            </section>
+
+            <!-- Блок 3: Ссылки на PDF-документы (лицензия, аттестат и т.д.) -->
+            <section class="doc-block pdf-list">
+                <h2>Лицензии и официальные документы</h2>
+                <ul>
+                    <li><a href="https://ukelgorsk.ru/docs/electronic_Шаблон_лицензии_house_receipt_МБУ__МУНИЦИПАЛЬ_1.pdf" target="_blank">Лицензия на осуществление предпринимательской деятельности по управлению многоквартирными домами</a></li>
+                    <li><a href="https://ukelgorsk.ru/docs/reestrizm.pdf" target="_blank">Решение ГЖИ МО от 29.03.2021 № 6231</a></li>
+                    <li><a href="https://ukelgorsk.ru/docs/kvalifikatt.pdf" target="_blank">Квалификационный аттестат</a></li>
+                    <li><a href="https://ukelgorsk.ru/docs/АП-2021%20(2).pdf" target="_blank">Адресный перечень подъездов 2021</a></li>
+                </ul>
+                <p class="note">* Документы в формате PDF. Если файлы не открываются, свяжитесь с нами по телефону +7 (49643) 3-10-42.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- ФУТЕР (полностью такой же, как на главной) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="gradient-box">
+                    <p class="footer-slogan">В квитанциях ошибки, в подъезде мусор, сотрудники управляющей хамят? Расскажите о проблемах с ЖКХ</p>
+                    <button class="btn secondary-btn" id="openProblemModalFooter">Написать о проблеме</button>
+                </div>
+            </div>
+            <div class="footer-right">
+                <img src="images/footer-img.png" alt="Фото дома" class="footer-img">
+            </div>
+        </div>
+        <div class="footer-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-block">
+                        <h4>МБУ "Управляющая компания Электрогорск"</h4>
+                        <p>Лицензия № 6231 от 29.03.2021, выдана ГЖИ МО</p>
+                        <p>Адрес: 142530, Московская обл., г. Электрогорск, ул. Карла Маркса, д.10</p>
+                        <p>Режим работы: Пн-Чт 9:00–18:00, Пт 9:00–16:45, перерыв 13:00–13:45</p>
+                        <p>Телефон: <a href="tel:+74964331042">+7 (49643) 3-10-42</a></p>
+                        <p>Email: <a href="mailto:UKElgorsk@yandex.ru">UKElgorsk@yandex.ru</a>, <a href="mailto:UKElgorsk@mail.ru">UKElgorsk@mail.ru</a></p>
+                        <p>Аварийно-диспетчерская служба: +7 (49643) 3-01-38</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>Для жителей</h4>
+                        <p>Сайт ГИС ЖКХ: <a href="https://dom.gosuslugi.ru" target="_blank">dom.gosuslugi.ru</a></p>
+                        <p>Нормативы и тарифы — по запросу в УК</p>
+                        <p>Правила безопасности газового оборудования — памятка в УК</p>
+                        <p><a href="#">Перечень работ и услуг</a> | <a href="#">Образцы заявлений</a></p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    © 2025 МБУ "УК Электрогорск" — вся информация актуальна на текущую дату
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно (то же самое) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Оставить заявку</h3>
+            <form id="requestForm">
+                <label>Ваше имя *</label>
+                <input type="text" name="name" required>
+                <label>Контактный телефон *</label>
+                <input type="tel" name="phone" required>
+                <label>Адрес (улица, дом, квартира)</label>
+                <input type="text" name="address">
+                <label>Суть проблемы</label>
+                <textarea name="problem" rows="3"></textarea>
+                <button type="submit" class="btn primary-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
