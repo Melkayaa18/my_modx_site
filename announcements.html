@@ -87,5 +87,85 @@
             </div>
         </div>
     </footer>
+
+
+
+
+
+    <!-- НОВОЕ МОДАЛЬНОЕ ОКНО для "Написать о проблеме" -->
+<div id="problemModal" class="modal problem-modal">
+    <div class="modal-content modal-large">
+        <span class="close-problem-modal close">&times;</span>
+        <h3>Сообщить о проблеме</h3>
+        <form id="problemForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Опишите ситуацию *</label>
+                <textarea name="problemText" rows="4" placeholder="Суть проблемы или предложения..." required></textarea>
+                <small class="form-hint">Несколько проблем? Рекомендуется указывать информацию только об одной проблеме или предложении, так вопрос быстрее дойдет до адресата.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Файлы (при необходимости)</label>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <p>📎 Перетащите файлы сюда или <span class="file-select-link">выберите на компьютере</span></p>
+                    <input type="file" name="files" id="fileInput" multiple style="display: none;">
+                </div>
+                <small class="form-hint">Не более 10 файлов, каждый до 10 Мб</small>
+                <ul id="fileList" class="file-list"></ul>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Ваш регион *</label>
+                    <select name="region" required>
+                        <option value="">Выберите регион</option>
+                        <option value="Московская область">Московская область</option>
+                        <option value="Москва">Москва</option>
+                        <option value="Другой">Другой</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Категория</label>
+                    <select name="category">
+                        <option value="">Выберите категорию</option>
+                        <option value="Проблема с ЖКХ">Проблема с ЖКХ</option>
+                        <option value="Ошибка в квитанции">Ошибка в квитанции</option>
+                        <option value="Хамство сотрудников">Хамство сотрудников</option>
+                        <option value="Мусор и благоустройство">Мусор и благоустройство</option>
+                        <option value="Отопление/горячая вода">Отопление/горячая вода</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="publicDisplay"> Отображать сообщение или обращение на портале госуслуг в открытом доступе
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="agreement" required> Я соглашаюсь с правилами подачи сообщений и обращений
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="collective"> Коллективное обращение
+                </label>
+                <small class="form-hint">Если обращение коллективное, укажите список заявителей в описании.</small>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="fz59"> Если Вы хотите, чтобы обращение рассматривалось в соответствии с 59-ФЗ в 30-дневный срок, отметьте на форме
+                </label>
+            </div>
+
+            <button type="submit" class="btn primary-btn">Отправить обращение</button>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

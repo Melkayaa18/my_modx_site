@@ -78,13 +78,29 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     border-radius: 30px;
-    transition: 0.2s;
+    position: relative;
+    transition: color 0.3s ease;
 }
-
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #2c6e9e;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 60%;
+}
 .main-nav a:hover,
 .main-nav a.active {
-    background: #2c6e9e;
-    color: white;
+    background: none;
+    color: #2c6e9e;
 }
 
 .dropdown-menu {
@@ -96,18 +112,60 @@ body {
     width: 200px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-radius: 12px;
-    display: none;
     z-index: 100;
     padding: 8px 0;
+    
+    /* Плавное появление */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
+
 
 .dropdown-menu a {
     padding: 8px 20px;
     font-weight: normal;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .main-nav ul {
+        flex-direction: column;
+    }
+    /* Для мобильных — подменю раскрывается без анимации, но не мешает десктопу */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background: #e9ecef;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;  /* скрыто, показываем при наведении */
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .company-title {
+        font-size: 1.4rem;
+    }
+    .heating-images {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .heating-images img {
+        width: calc(50% - 10px);
+    }
 }
 
 /* Герой */
@@ -342,6 +400,8 @@ body {
 
 .secondary-btn:hover {
     background-color: #1e4a76;
+    transform: translateY(-3px);/* положение(вверх) */
+    
 }
 
 /* Футер */
@@ -426,7 +486,186 @@ body {
     color: #8aa0b0;
 }
 
-/* Модальное окно */
+/* ===== РАСШИРЕННАЯ МОДАЛКА ДЛЯ ПРОБЛЕМ ===== */
+.problem-modal .modal-content {
+    max-width: 1000px;          /* шире — было 700px */
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;          /* скролл только вертикальный */
+    padding: 30px;
+    border-radius: 32px;
+    background: white;
+    scrollbar-width: thin;
+}
+.problem-modal .modal-content {
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 32px;
+    /* скролл будет внутри, но не вылезет за углы, если у родителя overflow скрыт? */
+}
+.problem-modal .modal-content {
+    scrollbar-width: thin;
+}
+.problem-modal .modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.problem-modal .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.problem-modal .modal-content::-webkit-scrollbar-thumb {
+    background: #2c6e9e;
+    border-radius: 10px;
+}
+.modal-large {
+    max-width: 700px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1e4663;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Зона загрузки файлов */
+.file-upload-area {
+    border: 2px dashed #2c6e9e;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.file-upload-area:hover {
+    background: #eef2f7;
+    border-color: #e67e22;
+}
+
+.file-select-link {
+    color: #e67e22;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.file-list {
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.file-list li {
+    background: #eef2f7;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Чекбоксы */
+.checkbox-group {
+    margin: 15px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: 400;
+    color: #1e2a3a;
+}
+.checkbox-label input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.checkbox-label {
+    font-weight: 400;
+}
+.checkbox-label br {
+    display: none;
+}
+
+/* Кнопка закрытия */
+.close-problem-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-problem-modal:hover {
+    color: black;
+}
+
+
+/* ЖЁСТКОЕ ИСПРАВЛЕНИЕ ЧЕКБОКСОВ – квадратик слева, текст справа */
+.modal .checkbox-label,
+.problem-modal .checkbox-label {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+.modal .checkbox-label input,
+.problem-modal .checkbox-label input {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+
+
+
+
+
+/* Старая модалка (простая форма) */
 .modal {
     display: none;
     position: fixed;
@@ -439,8 +678,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.modal-content {
+.modal .modal-content {
     background: white;
     width: 90%;
     max-width: 500px;
@@ -448,8 +686,7 @@ body {
     border-radius: 32px;
     position: relative;
 }
-
-.close {
+.modal .close {
     position: absolute;
     right: 20px;
     top: 15px;
@@ -457,18 +694,15 @@ body {
     cursor: pointer;
     color: #777;
 }
-
-.close:hover {
+.modal .close:hover {
     color: black;
 }
-
-.modal-content label {
+.modal label {
     display: block;
     margin-top: 15px;
     font-weight: 600;
 }
-
-.modal-content input, .modal-content textarea {
+.modal input, .modal textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -620,7 +854,11 @@ body {
     margin-bottom: 20px;
     color: #1e4663;
 }
-
+/* Дополнительные стили для карты */
+.map-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
 .map-placeholder {
     background: #eef2f7;
     height: 300px;
@@ -756,4 +994,95 @@ body {
     color: #2c6e9e;
     font-weight: bold;
     text-decoration: none;
+}
+
+
+
+
+
+
+
+/* ===== АККОРДЕОН ДЛЯ СТРАНИЦЫ ИНФОРМАЦИЯ ===== */
+.info-container {
+    padding: 40px 20px;
+}
+
+.accordion-item {
+    background: white;
+    border-radius: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e4663;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accordion-header:hover {
+    background: #f8fafc;
+}
+
+.accordion-header .icon {
+    font-size: 1.8rem;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+    color: #e67e22;
+}
+
+.accordion-header.active .icon {
+    transform: rotate(45deg);
+}
+
+/* Новая техника: grid-template-rows для плавности */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+    padding: 0 25px;
+}
+
+.accordion-content.show {
+    grid-template-rows: 1fr;
+    padding: 0 25px 25px 25px;
+}
+
+/* Внутренний контейнер для контента */
+.accordion-content > div {
+    overflow: hidden;
+}
+
+/* Внутренние отступы для контента */
+.accordion-content p,
+.accordion-content ul,
+.accordion-content ol {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.accordion-content ul, 
+.accordion-content ol {
+    padding-left: 25px;
+}
+
+.accordion-content a {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.accordion-content a:hover {
+    text-decoration: underline;
 }

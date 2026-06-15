@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <!-- Подключаем шрифты для удобства чтения -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
 
@@ -14,8 +15,8 @@
     <header class="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="images/gerb.jpg" alt="Герб Электрогорска" class="gerb">
-                <span class="logo-text">МБУ "УК ЭЛЕКТРОГОРСК"</span>
+                <img src="images/gerb.jpg" alt="Герб Электрогорска" class="gerb" data-aos="zoom-in" data-aos-duration="1500">
+                <span class="logo-text" data-aos="zoom-in" data-aos-duration="1500">МБУ "УК ЭЛЕКТРОГОРСК"</span>
             </div>
             <!-- Декоративный орнамент (полоска с картинкой) -->
             <div class="ornament">
@@ -24,12 +25,12 @@
             <!-- НАВИГАЦИЯ -->
             <nav class="main-nav">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="active">Главная</a></li>
-                    <li><a href="documents.html">Документы</a></li>
-                    <li><a href="vacancies.html">Вакансии</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="index.html" class="active" data-aos="fade-left" data-aos-duration="1500">Главная</a></li>
+                    <li><a href="documents.html" data-aos="fade-left" data-aos-duration="1500">Документы</a></li>
+                    <li><a href="vacancies.html" data-aos="fade-left" data-aos-duration="1500">Вакансии</a></li>
+                    <li><a href="contacts.html" data-aos="fade-left" data-aos-duration="1500">Контакты</a></li>
                     <li class="dropdown">
-                        <a href="#">Информация</a>
+                        <a href="#" data-aos="fade-left" data-aos-duration="1500">Информация</a>
                         <ul class="dropdown-menu">
                             <li><a href="info.html">Общая информация</a></li>
                             <li><a href="announcements.html">Объявления</a></li>
@@ -44,16 +45,16 @@
         <!-- Блок с названием компании и фотографией города -->
         <section class="hero">
             <div class="container">
-                <h1 class="company-title">МБУ "УПРАВЛЯЮЩАЯ КОМПАНИЯ ЭЛЕКТРОГОРСК"</h1>
-                <img src="images/city-photo2.jpg" alt="Город Электрогорск" class="city-photo">
+                <h1 class="company-title" data-aos="fade-up" data-aos-duration="1500">МБУ "УПРАВЛЯЮЩАЯ КОМПАНИЯ ЭЛЕКТРОГОРСК"</h1>
+                <img src="images/city-photo2.jpg" alt="Город Электрогорск" class="city-photo" data-aos="zoom-out" data-aos-duration="1500">
             </div>
         </section>
 
         <section class="mission">
             <div class="container">
-                <img src="images/work2.png" alt="Ремонтные работы" class="mission-img">
+                <img src="images/work2.png" alt="Ремонтные работы" class="mission-img" data-aos="fade-right" data-aos-duration="1500">
                 <div class="mission-text">
-                    <p><strong>ОСНОВНЫМИ ЦЕЛЯМИ И ЗАДАЧАМИ МУНИЦИПАЛЬНОГО БЮДЖЕТНОГО УЧРЕЖДЕНИЯ "УПРАВЛЯЮЩАЯ КОМПАНИЯ ЭЛЕКТРОГОРСК" ЯВЛЯЮТСЯ:</strong> функционирование городского хозяйства в области строительства, а также реконструкция, ремонт и содержание объектов внешнего благоустройства: придомовые территории и дороги общего назначения в пределах населенного пункта Электрогорск. Мы производим инженерные и электромонтажные, штукатурные и санитарно-технические работы.</p>
+                    <p data-aos="fade-left" data-aos-duration="1500"><strong>ОСНОВНЫМИ ЦЕЛЯМИ И ЗАДАЧАМИ МУНИЦИПАЛЬНОГО БЮДЖЕТНОГО УЧРЕЖДЕНИЯ "УПРАВЛЯЮЩАЯ КОМПАНИЯ ЭЛЕКТРОГОРСК" ЯВЛЯЮТСЯ:</strong> функционирование городского хозяйства в области строительства, а также реконструкция, ремонт и содержание объектов внешнего благоустройства: придомовые территории и дороги общего назначения в пределах населенного пункта Электрогорск. Мы производим инженерные и электромонтажные, штукатурные и санитарно-технические работы.</p>
                 </div>
             </div>
         </section>
@@ -62,15 +63,15 @@
 <section class="heating">
     <div class="container heating-container">
         <div class="heating-info">
-            <h2>Не дали отопление? <span>Расскажите — мы поможем!</span></h2>
-            <p class="lead">В Подмосковье начался отопительный сезон: узнать дату запуска отопления в своем доме можно с помощью Карты коммунальных услуг МКД.</p>
+            <h2 data-aos="fade-left" data-aos-duration="1500">Не дали отопление? <span>Расскажите — мы поможем!</span></h2>
+            <p class="lead" data-aos="fade-right" data-aos-duration="1500">В Подмосковье начался отопительный сезон: узнать дату запуска отопления в своем доме можно с помощью Карты коммунальных услуг МКД.</p>
             
-            <div class="steps-block">
+            <div class="steps-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
                 <h3>Что делать, если отопление не дали?</h3>
                 <p>Если по графику в вашем доме уже должно стать тепло, но этого не произошло, расскажите об этом через <strong>Единую диспетчерскую службу Московской области</strong>.</p>
             </div>
             
-            <div class="steps-block">
+            <div class="steps-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="500">
                 <h3>Как подать заявку</h3>
                 <ul class="styled-list check-list">
                     <li>нажимаем «подать заявку» на сайте;</li>
@@ -81,7 +82,7 @@
                 </ul>
             </div>
             
-            <div class="steps-block">
+            <div class="steps-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="500">
                 <h3>Что дальше?</h3>
                 <ol class="styled-list numbered-list">
                     <li>Управляющая компания рассмотрит вашу заявку в течение суток.</li>
@@ -89,12 +90,12 @@
                 </ol>
             </div>
             
-            <button class="btn primary-btn" id="openModalBtn">Подать заявку</button>
+            <button class="btn primary-btn" id="openModalBtn" data-aos="fade-up" data-aos-duration="1000">Подать заявку</button>
         </div>
         
         <div class="heating-image-single">
-            <img src="images/work.jpg" alt="Помощь с отоплением">
-            <img src="images/goodheat.png" alt="Помощь с отоплением">
+            <img src="images/work.jpg" alt="Помощь с отоплением" data-aos="zoom-in" data-aos-duration="1500">
+            <img src="images/goodheat.png" alt="Помощь с отоплением" data-aos="zoom-in" data-aos-duration="1500">
             
         </div>
     </div>
@@ -144,25 +145,102 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО для заявки (первые две кнопки) -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Оставить заявку</h3>
-            <form id="requestForm">
-                <label>Ваше имя *</label>
-                <input type="text" name="name" required>
-                <label>Контактный телефон *</label>
-                <input type="tel" name="phone" required>
-                <label>Адрес (улица, дом, квартира)</label>
-                <input type="text" name="address">
-                <label>Суть проблемы</label>
-                <textarea name="problem" rows="3"></textarea>
-                <button type="submit" class="btn primary-btn">Отправить</button>
-            </form>
-        </div>
-    </div>
+   <!-- НОВОЕ МОДАЛЬНОЕ ОКНО для "Написать о проблеме" -->
+<div id="problemModal" class="modal problem-modal">
+    <div class="modal-content modal-large">
+        <span class="close-problem-modal close">&times;</span>
+        <h3>Сообщить о проблеме</h3>
+        <form id="problemForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Опишите ситуацию *</label>
+                <textarea name="problemText" rows="4" placeholder="Суть проблемы или предложения..." required></textarea>
+                <small class="form-hint">Несколько проблем? Рекомендуется указывать информацию только об одной проблеме или предложении, так вопрос быстрее дойдет до адресата.</small>
+            </div>
 
+            <div class="form-group">
+                <label>Файлы (при необходимости)</label>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <p>📎 Перетащите файлы сюда или <span class="file-select-link">выберите на компьютере</span></p>
+                    <input type="file" name="files" id="fileInput" multiple style="display: none;">
+                </div>
+                <small class="form-hint">Не более 10 файлов, каждый до 10 Мб</small>
+                <ul id="fileList" class="file-list"></ul>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Ваш регион *</label>
+                    <select name="region" required>
+                        <option value="">Выберите регион</option>
+                        <option value="Московская область">Московская область</option>
+                        <option value="Москва">Москва</option>
+                        <option value="Другой">Другой</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Категория</label>
+                    <select name="category">
+                        <option value="">Выберите категорию</option>
+                        <option value="Проблема с ЖКХ">Проблема с ЖКХ</option>
+                        <option value="Ошибка в квитанции">Ошибка в квитанции</option>
+                        <option value="Хамство сотрудников">Хамство сотрудников</option>
+                        <option value="Мусор и благоустройство">Мусор и благоустройство</option>
+                        <option value="Отопление/горячая вода">Отопление/горячая вода</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="publicDisplay"> Отображать сообщение или обращение на портале госуслуг в открытом доступе
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="agreement" required> Я соглашаюсь с правилами подачи сообщений и обращений
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="collective"> Коллективное обращение
+                </label>
+                <small class="form-hint">Если обращение коллективное, укажите список заявителей в описании.</small>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="fz59"> Если Вы хотите, чтобы обращение рассматривалось в соответствии с 59-ФЗ в 30-дневный срок, отметьте на форме
+                </label>
+            </div>
+
+            <button type="submit" class="btn primary-btn">Отправить обращение</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- СТАРАЯ МОДАЛКА для заявки на отопление/вакансии -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Подать заявку</h3>
+        <form id="requestForm">
+            <label>Ваше имя *</label>
+            <input type="text" name="name" required>
+            <label>Контактный телефон *</label>
+            <input type="tel" name="phone" required>
+            <label>Адрес (улица, дом, квартира)</label>
+            <input type="text" name="address">
+            <label>Суть проблемы</label>
+            <textarea name="problem" rows="3"></textarea>
+            <button type="submit" class="btn primary-btn">Отправить</button>
+        </form>
+    </div>
+</div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({offset:0});</script>
     <script src="script.js"></script>
 </body>
 </html>

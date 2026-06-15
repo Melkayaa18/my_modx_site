@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<!-- Скрипт для загрузки Яндекс.Карт -->
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU" type="text/javascript"></script>
     <!-- ШАПКА -->
     <header class="header">
         <div class="container header-container">
@@ -68,13 +69,9 @@
 
             <!-- Карта (заглушка, потом заменишь на реальную) -->
             <div class="map-container">
-                <h2>Схема проезда</h2>
-                <div class="map-placeholder">
-                    <p>📍 Здесь будет карта с расположением офиса по адресу: ул. Карла Маркса, д.10, Электрогорск</p>
-                    <!-- Пример вставки Яндекс.Карты (раскомментируй и замени ключ, если нужно) -->
-                    <!-- <iframe src="https://yandex.ru/map-widget/v1/?ll=38.123456,55.123456&z=17&pt=38.123456,55.123456&whatshere[point]=38.123456,55.123456&whatshere[zoom]=17&mode=search&sll=38.123456,55.123456&text=Электрогорск%20ул.%20Карла%20Маркса%2010" width="100%" height="300" frameborder="0"></iframe> -->
-                </div>
-            </div>
+    <h2>🗺️ Схема проезда</h2>
+    <div id="map" style="width: 100%; height: 400px"></div>
+</div>
         </div>
     </main>
 
@@ -88,7 +85,7 @@
                 </div>
             </div>
             <div class="footer-right">
-                <img src="images/footer-img.png" alt="Фото дома" class="footer-img">
+                <img src="images/banner.jpg" alt="Фото дома" class="footer-img">
             </div>
         </div>
         <div class="footer-info">
@@ -136,7 +133,107 @@
             </form>
         </div>
     </div>
+<!-- НОВОЕ МОДАЛЬНОЕ ОКНО для "Написать о проблеме" -->
+<div id="problemModal" class="modal problem-modal">
+    <div class="modal-content modal-large">
+        <span class="close-problem-modal close">&times;</span>
+        <h3>Сообщить о проблеме</h3>
+        <form id="problemForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Опишите ситуацию *</label>
+                <textarea name="problemText" rows="4" placeholder="Суть проблемы или предложения..." required></textarea>
+                <small class="form-hint">Несколько проблем? Рекомендуется указывать информацию только об одной проблеме или предложении, так вопрос быстрее дойдет до адресата.</small>
+            </div>
 
+            <div class="form-group">
+                <label>Файлы (при необходимости)</label>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <p>📎 Перетащите файлы сюда или <span class="file-select-link">выберите на компьютере</span></p>
+                    <input type="file" name="files" id="fileInput" multiple style="display: none;">
+                </div>
+                <small class="form-hint">Не более 10 файлов, каждый до 10 Мб</small>
+                <ul id="fileList" class="file-list"></ul>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Ваш регион *</label>
+                    <select name="region" required>
+                        <option value="">Выберите регион</option>
+                        <option value="Московская область">Московская область</option>
+                        <option value="Москва">Москва</option>
+                        <option value="Другой">Другой</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Категория</label>
+                    <select name="category">
+                        <option value="">Выберите категорию</option>
+                        <option value="Проблема с ЖКХ">Проблема с ЖКХ</option>
+                        <option value="Ошибка в квитанции">Ошибка в квитанции</option>
+                        <option value="Хамство сотрудников">Хамство сотрудников</option>
+                        <option value="Мусор и благоустройство">Мусор и благоустройство</option>
+                        <option value="Отопление/горячая вода">Отопление/горячая вода</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="publicDisplay"> Отображать сообщение или обращение на портале госуслуг в открытом доступе
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="agreement" required> Я соглашаюсь с правилами подачи сообщений и обращений
+                </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="collective"> Коллективное обращение
+                </label>
+                <small class="form-hint">Если обращение коллективное, укажите список заявителей в описании.</small>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="fz59"> Если Вы хотите, чтобы обращение рассматривалось в соответствии с 59-ФЗ в 30-дневный срок, отметьте на форме
+                </label>
+            </div>
+
+            <button type="submit" class="btn primary-btn">Отправить обращение</button>
+        </form>
+    </div>
+</div>
     <script src="script.js"></script>
+
+
+
+    <script type="text/javascript">
+    function initMap() {
+        // Координаты центра карты
+        var center = [55.887412, 38.777118];
+
+        // Создание карты
+        var map = new ymaps.Map("map", {
+            center: center,
+            zoom: 17,
+            controls: ["zoomControl", "fullscreenControl"]
+        });
+
+        // Добавление метки
+        var placemark = new ymaps.Placemark(center, {
+            hintContent: "МБУ УК Электрогорск",
+            balloonContent: "<strong>МБУ Управляющая компания Электрогорск</strong><br />ул. Карла Маркса, 10, Электрогорск, Московская обл., 142530"
+        });
+
+        map.geoObjects.add(placemark);
+    }
+
+    // Ждем загрузки API и страницы
+    ymaps.ready(initMap);
+</script>
 </body>
 </html>
