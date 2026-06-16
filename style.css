@@ -1189,3 +1189,132 @@ body {
     margin-top: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Блок контактов администрации — карточки */
+.admin-cards {
+    margin-top: 35px;
+}
+
+.admin-cards-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.admin-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.admin-card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 25px 20px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-top: 6px solid #2c6e9e; /* базовая линия, будет переопределена для каждой карточки */
+}
+
+.admin-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* Индивидуальные цвета для карточек */
+.address-card {
+    border-top-color: #27ae60;
+}
+.phones-card {
+    border-top-color: #e67e22;
+}
+.email-card {
+    border-top-color: #8e44ad;
+}
+
+.admin-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.admin-card-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e4663;
+    margin-bottom: 12px;
+}
+
+.admin-card-text {
+    font-size: 1.1rem; /* увеличили */
+    line-height: 1.8; /* больше межстрочного интервала для разделения */
+    color: #1e2a3a; /* более темный цвет для контраста */
+    font-weight: 500; /* чуть жирнее */
+}
+.admin-card-text a {
+    color: #003366; /* более насыщенный синий */
+    font-weight: 700; /* жирный */
+    text-decoration: none;
+    font-size: 1.15rem; /* чуть крупнее */
+    transition: color 0.2s;
+    display: inline-block; /* для удобства */
+    padding: 2px 0;
+}
+
+.admin-card-text a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+/* Каждый номер можно обернуть в span с отступом, чтобы они не слипались */
+.admin-card-text br {
+    margin-bottom: 4px;
+}
+/* Можно добавить разделитель между строками телефонов */
+.admin-card-text .phone-item {
+    display: block;
+    margin-bottom: 4px;
+}
+.phone-item,
+.email-item {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+}
+.phone-item a,
+.email-item a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #003366;
+}
+.phone-item a:hover,
+.email-item a:hover {
+    color: #e67e22;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .admin-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .admin-card {
+        padding: 20px 15px;
+    }
+}
