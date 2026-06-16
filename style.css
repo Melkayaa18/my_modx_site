@@ -1086,3 +1086,106 @@ body {
 .accordion-content a:hover {
     text-decoration: underline;
 }
+
+
+
+
+
+/* Стили для нового блока с контактами на главной странице */
+.contacts-block {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e67e22;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Стили для табличного варианта */
+.contacts-table-wrapper {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease;
+}
+.contacts-table:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.contacts-table td {
+    padding: 18px 22px;
+    border-bottom: 1px solid #eef2f7;
+    vertical-align: top;
+    transition: all 0.2s ease;
+}
+.contacts-table td:first-child {
+    font-weight: 700;
+    color: #003366;
+    width: 38%;
+    background-color: #fafcfd;
+    border-right: 1px solid #eef2f7;
+}
+.contacts-table tr:last-child td {
+    border-bottom: none;
+}
+.contacts-table tr:hover td {
+    background-color: #fef5e7;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+.contacts-table tr:hover td:first-child {
+    background-color: #fff0e0;
+}
+.contacts-note {
+    background: linear-gradient(135deg, #fef5e7, #fff);
+    padding: 18px 25px;
+    border-radius: 24px;
+    color: #a04000;
+    font-size: 0.95rem;
+    border-left: 6px solid #e67e22;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.contacts-table a {
+    color: #2c6e9e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.contacts-table a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+/* Примечание под таблицей */
+.contacts-note {
+    background: linear-gradient(135deg, #fef5e7, #fff);
+    padding: 18px 25px;
+    border-radius: 24px;
+    color: #a04000;
+    font-size: 0.95rem;
+    border-left: 6px solid #e67e22;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
