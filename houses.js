@@ -17,11 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const streetDiv = document.createElement('div');
             streetDiv.className = 'house-street-item';
 
+            // Сортируем дома по номеру (сложные номера с корпусами оставляем как есть)
             const sortedHouses = [...streetData.houses].sort((a, b) => {
-                const numA = parseInt(a);
-                const numB = parseInt(b);
+                // если есть числовая часть, сравниваем числа
+                const numA = parseInt(a.number);
+                const numB = parseInt(b.number);
                 if (!isNaN(numA) && !isNaN(numB) && numA !== numB) return numA - numB;
-                return a.localeCompare(b);
+                return a.number.localeCompare(b.number);
             });
 
             const streetHeader = document.createElement('button');
@@ -43,19 +45,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const contentDiv = document.createElement('div');
             contentDiv.className = 'house-street-content';
 
-            // === ВНУТРЕННЯЯ ОБЁРТКА (как в информации) ===
             const innerWrapper = document.createElement('div');
-
             const houseList = document.createElement('div');
             houseList.className = 'house-list';
 
-            sortedHouses.forEach(number => {
+            sortedHouses.forEach(houseObj => {
                 const houseBtn = document.createElement('button');
                 houseBtn.className = 'house-btn';
-                houseBtn.textContent = `Дом ${number}`;
+                houseBtn.textContent = `Дом ${houseObj.number}`;
                 houseBtn.addEventListener('click', () => {
-                    modalTitle.textContent = `${streetData.street}, ${number}`;
-                    modalBody.innerHTML = `
+                    modalTitle.textContent = `${streetData.street}, ${houseObj.number}`;
+                    // Формируем модалку
+                    let html = `
                         <div class="house-modal-info">
                             <div class="modal-row">
                                 <span class="modal-label">🏢 ЖКО:</span>
@@ -86,8 +87,29 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="modal-label">🏢 Управляющая компания:</span>
                                 <span class="modal-value"><a href="tel:${streetData.ukPhone.replace(/\s/g, '')}">${streetData.ukPhone}</a></span>
                             </div>
-                        </div>
                     `;
+
+                    // Добавляем документы, если они есть
+                    if (houseObj.documents && houseObj.documents.length > 0) {
+                        html += `
+                            <div class="modal-divider"></div>
+                            <div class="modal-row" style="flex-direction: column; align-items: stretch;">
+                                <span class="modal-label" style="margin-bottom: 8px;">📄 Документы по дому:</span>
+                                <ul class="documents-list">
+                        `;
+                        houseObj.documents.forEach(doc => {
+                            html += `
+                                <li><a href="${doc.link}" target="_blank">${doc.name}</a></li>
+                            `;
+                        });
+                        html += `
+                                </ul>
+                            </div>
+                        `;
+                    }
+
+                    html += `</div>`; // закрываем house-modal-info
+                    modalBody.innerHTML = html;
                     modal.style.display = 'flex';
                 });
                 houseList.appendChild(houseBtn);
@@ -112,9 +134,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const filtered = housesData.map(streetData => ({
             ...streetData,
-            houses: streetData.houses.filter(number =>
+            houses: streetData.houses.filter(houseObj =>
                 streetData.street.toLowerCase().includes(q) ||
-                number.toLowerCase().includes(q)
+                houseObj.number.toLowerCase().includes(q)
             )
         })).filter(item => item.houses.length > 0);
         renderHouses(filtered);
