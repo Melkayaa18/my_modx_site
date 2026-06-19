@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Объявления - МБУ "УК Электрогорск"</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Обслуживаемые дома - МБУ "УК Электрогорск"</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
+
+    <!-- ШАПКА -->
     <header class="header">
         <div class="container header-container">
             <div class="logo">
@@ -20,15 +22,15 @@
             </div>
             <nav class="main-nav">
                 <ul class="nav-list">
-                    <li><a href="index.html" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="500">Главная</a></li>
+                     <li><a href="index.html" class="active" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="500">Главная</a></li>
                     <li><a href="documents.html" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="600">Документы</a></li>
                     <li><a href="vacancies.html" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Вакансии</a></li>
                     <li><a href="contacts.html" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800">Контакты</a></li>
                     <li><a href="houses.html" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800">Обслуживаемые дома</a></li>
                     <li class="dropdown">
-                        <a href="#" class="active" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800">Информация</a>
+                        <a href="#" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800">Информация</a>
                         <ul class="dropdown-menu">
-                            <li><a href="info.html" class="active">Общая информация</a></li>
+                            <li><a href="info.html">Общая информация</a></li>
                             <li><a href="announcements.html">Объявления</a></li>
                         </ul>
                     </li>
@@ -36,21 +38,25 @@
             </nav>
         </div>
     </header>
-    
+
     <main>
-        <div class="container announcements-container">
-            <h1 class="page-title" data-aos="fade-right" data-aos-duration="1500">Объявления</h1>
-            <div class="announcements-grid">
-                <!--<div class="announcement-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                    <img src="images/announcement1.png" alt="Объявление 1">
-                </div>-->
-                <div class="announcement-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
-                    <img src="images/announcement2.png" alt="Объявление 2">
-                </div>
+        <div class="container houses-container">
+            <h1 class="page-title" data-aos="fade-right" data-aos-duration="1500">🏘️ Обслуживаемые дома</h1>
+            <p class="houses-intro" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="400">Всего под управлением: <strong id="totalHouses">0</strong> домов</p>
+
+            <!-- Поиск -->
+            <div class="search-box" data-aos="fade-up" data-aos-duration="1500">
+                <input type="text" id="houseSearch" placeholder="🔍 Поиск по адресу (улица или номер дома)" class="search-input">
+            </div>
+
+            <!-- Аккордеон -->
+            <div class="houses-accordion" id="housesAccordion" data-aos="fade-up" data-aos-duration="1500">
+                <!-- Заполняется из JavaScript -->
             </div>
         </div>
     </main>
 
+    <!-- ФУТЕР -->
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-left">
@@ -90,11 +96,32 @@
         </div>
     </footer>
 
-
-
-
-
-    <!-- НОВОЕ МОДАЛЬНОЕ ОКНО для "Написать о проблеме" -->
+    <!-- Модальное окно для информации о доме -->
+    <div id="houseModal" class="modal house-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="houseModalTitle">Дом</h3>
+            <div id="houseModalBody"></div>
+        </div>
+    </div>
+ <!-- Модальное окно (заявка) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Откликнуться на вакансию</h3>
+            <form id="vacancyForm">
+                <input type="hidden" name="vacancy" id="selectedVacancy">
+                <label>Ваше имя *</label>
+                <input type="text" name="name" required>
+                <label>Контактный телефон *</label>
+                <input type="tel" name="phone" required>
+                <label>Краткий опыт работы</label>
+                <textarea name="experience" rows="3"></textarea>
+                <button type="submit" class="btn primary-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+<!-- НОВОЕ МОДАЛЬНОЕ ОКНО для "Написать о проблеме" -->
 <div id="problemModal" class="modal problem-modal">
     <div class="modal-content modal-large">
         <span class="close-problem-modal close">&times;</span>
@@ -168,8 +195,14 @@
         </form>
     </div>
 </div>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({offset:0});</script>
-<script src="script.js"></script>
+    <!-- Подключаем AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+    </script>
+    <!-- Подключаем данные и логику -->
+    <script src="houses-data.js"></script>
+    <script src="script.js"></script>
+    <script src="houses.js"></script>
 </body>
 </html>
