@@ -7,19 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeSpan = modal.querySelector('.close');
     const totalSpan = document.getElementById('totalHouses');
 
-    // Функция рендеринга
     function renderHouses(data) {
         accordion.innerHTML = '';
         let totalCount = 0;
 
-        // Сортируем улицы по алфавиту
         const sorted = [...data].sort((a, b) => a.street.localeCompare(b.street));
 
         sorted.forEach(streetData => {
             const streetDiv = document.createElement('div');
             streetDiv.className = 'house-street-item';
 
-            // Сортируем номера домов (числовые и с буквами)
             const sortedHouses = [...streetData.houses].sort((a, b) => {
                 const numA = parseInt(a);
                 const numB = parseInt(b);
@@ -46,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const contentDiv = document.createElement('div');
             contentDiv.className = 'house-street-content';
 
+            // === ВНУТРЕННЯЯ ОБЁРТКА (как в информации) ===
+            const innerWrapper = document.createElement('div');
+
             const houseList = document.createElement('div');
             houseList.className = 'house-list';
 
@@ -54,12 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 houseBtn.className = 'house-btn';
                 houseBtn.textContent = `Дом ${number}`;
                 houseBtn.addEventListener('click', () => {
-                    // Открываем модалку с полной информацией
                     modalTitle.textContent = `${streetData.street}, ${number}`;
                     modalBody.innerHTML = `
                         <div class="house-modal-info">
                             <div class="modal-row">
-                                <span class="modal-label">⭐ ЖКО:</span>
+                                <span class="modal-label">🏢 ЖКО:</span>
                                 <span class="modal-value"><strong>${streetData.jko}</strong></span>
                             </div>
                             <div class="modal-row">
@@ -94,7 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 houseList.appendChild(houseBtn);
             });
 
-            contentDiv.appendChild(houseList);
+            innerWrapper.appendChild(houseList);
+            contentDiv.appendChild(innerWrapper);
             streetDiv.appendChild(streetHeader);
             streetDiv.appendChild(contentDiv);
             accordion.appendChild(streetDiv);
@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         totalSpan.textContent = totalCount;
     }
 
-    // Функция поиска
     function searchHouses(query) {
         const q = query.toLowerCase().trim();
         if (q === '') {
@@ -121,17 +120,14 @@ document.addEventListener('DOMContentLoaded', function() {
         renderHouses(filtered);
     }
 
-    // Обработчик поиска
     searchInput.addEventListener('input', (e) => {
         searchHouses(e.target.value);
     });
 
-    // Закрытие модалки
     if (closeSpan) closeSpan.addEventListener('click', () => { modal.style.display = 'none'; });
     window.addEventListener('click', (e) => {
         if (e.target === modal) modal.style.display = 'none';
     });
 
-    // Инициализация
     renderHouses(housesData);
 });

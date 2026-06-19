@@ -1460,15 +1460,18 @@ body {
 }
 
 .house-street-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
-    padding: 0 22px;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+    padding: 0 25px;
 }
 
 .house-street-content.open {
-    max-height: 2000px;
-    padding: 15px 22px 20px;
+    grid-template-rows: 1fr;
+    padding: 15px 25px 20px;
+}
+.house-street-content > div {
+    overflow: hidden;
 }
 
 .house-list {
